@@ -1,0 +1,31 @@
+Integration ID	Source	              Destination	            Notes
+I001	          Web	Message           DB	                    Table captures incoming messages
+I002	          Message               DB	                    Event Subscriber	Subscriber captures delta in DB
+I003	          Event Subscriber	    Event Grid	            ProcessMsg event is raised
+I004	          Event Grid	          FnAppProcessMsg	        FnApp receives message to be processed
+I005	          FnAppProcessMsg	      External API	          External API receives message
+I006	          External API	        FnAppProcessResult	    Result of message process published
+I007	          FnAppProcessResult	  LgcAppHandleOutcome	    Outcome (success/failure) routed to appropriate destination
+I008	          LgcAppHandleOutcome	  Message DB	            Requeue in event of failure
+I009	          FnAppProcessMsg	      AuditDB	                Log outcome
+I010	          FnAppProcessResult	  AuditDB	                Log outcome
+I011	          LgcAppHandleOutcome	  AuditDB	                Log outcome
+I012	          LgcAppHandleOutcome	  Notification Queue	    Build dashboard around metrics…
+I013	          FnAppProcessMsg	      dbPoisonQueue	          For undeliverable messages & manual processing
+
+
+
+Assumptions & Design Decisions
+
+	Cost is not in scope, therefore scaling needs to be discussed
+	Managed identity (3rd party API, DB) is not in scope
+	Location is not in scope (my default would be Australia SE)
+	Message size < 64k so Event Grid and not Service Bus
+	Source DB and API not under KeyPath admin
+
+
+Next Steps
+
+	Abstract logging to service
+	Move logging to AppInsights/Log Analytics
+Use Azure SQL Trigger + modify table to allow change tracking
