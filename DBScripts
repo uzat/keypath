@@ -1,0 +1,22 @@
+CREATE TABLE [dbo].[tblDelegate] (
+    [ID]        INT            IDENTITY (1, 1) NOT NULL,
+    [FirstName] NVARCHAR (MAX) NULL,
+    [LastName]  NVARCHAR (MAX) NULL,
+    [GoesBy]    NVARCHAR (MAX) NULL,
+    CONSTRAINT [PK_tblDelegate] PRIMARY KEY CLUSTERED ([ID] ASC)
+);
+
+CREATE TABLE [dbo].[tblCity] (
+    [ID]       INT            IDENTITY (1, 1) NOT NULL,
+    [CItyName] NVARCHAR (MAX) NULL,
+    CONSTRAINT [PK_tblCity] PRIMARY KEY CLUSTERED ([ID] ASC)
+);
+
+CREATE TABLE [dbo].[tblConference] (
+    [ID]         INT IDENTITY (1, 1) NOT NULL,
+    [City]       NVARCHAR (MAX)   NOT NULL,
+    [CityID]     INT              NOT NULL,
+    [Delegate]   NVARCHAR (MAX)   NOT NULL,
+    [DelegateID] INT              NULL,
+    CONSTRAINT [PK_tblConference] PRIMARY KEY CLUSTERED ([ID] ASC)
+);
