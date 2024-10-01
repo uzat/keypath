@@ -17,7 +17,7 @@ I013	          FnAppProcessMsg	      dbPoisonQueue	          For undeliverable m
 
 Assumptions & Design Decisions
 
-	Have assumed a plan of Premium for the app services to accommodate the required scaling suring busy times - cost or budget was not in scope on the brief
+	Have assumed a plan of Premium for the app services to accommodate the required scaling during busy times - cost or budget was not in scope on the brief
 	Managed identity (3rd party API, DB) is not in scope as not mentioned on the brief
 	Location is not in scope (my default would be Australia SE)
 	Message size < 64k so Event Grid and not Service Bus
