@@ -1,2 +1,3 @@
 Deployed the API & basic operations to Azure
+  https://keypath-apiquery.azurewebsites.net/delegates/1 for testing & verification
 Did this to establish the deployment process works then I know I can add to it incrementally as I think we discussed in the interview
