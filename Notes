@@ -17,15 +17,15 @@ I013	          FnAppProcessMsg	      dbPoisonQueue	          For undeliverable m
 
 Assumptions & Design Decisions
 
-	Cost is not in scope, therefore scaling needs to be discussed
-	Managed identity (3rd party API, DB) is not in scope
+	Have assumed a plan of Premium for the app services to accommodate the required scaling suring busy times - cost or budget was not in scope on the brief
+	Managed identity (3rd party API, DB) is not in scope as not mentioned on the brief
 	Location is not in scope (my default would be Australia SE)
 	Message size < 64k so Event Grid and not Service Bus
-	Source DB and API not under KeyPath admin
+	Source DB and API not under KeyPath administration
 
 
-Next Steps
+Next Steps or MVP+1
 
 	Abstract logging to service
 	Move logging to AppInsights/Log Analytics
-Use Azure SQL Trigger + modify table to allow change tracking
+	Use Azure SQL Trigger + modify table to allow change tracking
